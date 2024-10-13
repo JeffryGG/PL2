@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<head>
+		<title>Mi thymeleaf</title>
+	</head>
+<body>
+	<h1>Listado de roles</h1>
+	<table>
+		<th:block th:each="p: ${ltsRole}">
+			<tr>
+				<td th:text ="${p.idrole}"></td>
+				<td th:text ="${p.name}"></td>
+				<td th:text ="${p.description}"></td>
+			</tr>
+		</th:block>
+	</table>
+	<h1>Listado de personas</h1>
+	<table>
+			<th:block th:each="p: ${ltsPerson}">
+				<tr>
+					<td th:text ="${p.idperson}"></td>
+					<td th:text ="${p.fistname}"></td>
+					<td th:text ="${p.lastname}"></td>
+					<td th:text ="${p.user.role.name}"></td>
+					<td>
+						<a th:href="@{/estudiantes/editar/{id}(id=${estudiante.id})}"  class="btn btn-info">Editar</a>
+						<a th:href="@{/estudiantes/{id}(id=${estudiante.id})}"  class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</th:block>
+		</table>
+</body>
+</html>
