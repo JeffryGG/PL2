@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Biblioteca Municipal de Lima</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark text-white">
+
+	<div class="container d-flex justify-content-center align-items-center min-vh-100">
+		<form th:action="@{/login}" th:object="${usuarioLogin}" method="post">
+			<p th:if="${errors}" th:text="${errors}"></p>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Correo</label>
+				<input th:field="*{correo}" type="email" name="usuario" placeholder="Ingrese su email"
+					class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Contraseña</label>
+				<input th:field="*{password}" type="password" name="clave" placeholder="Ingrese su clave"
+					class="form-control">
+			</div>
+
+			<div class="text-center p">
+				<button type="submit" class="btn btn-primary">Login</button>
+				&nbsp;&nbsp;
+				<a th:href="@{/registrar}" class="btn btn-success">Registrar</a>
+			</div>
+		</form>
+	</div>
+
+
+
+</body>
+
+</html>
